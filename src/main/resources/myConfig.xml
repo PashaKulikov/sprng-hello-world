@@ -5,10 +5,18 @@
                "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="myService" class="ru.learnup.spring.helloworld.services.MyService">
 
-        <constructor-arg ref="myLogger" />
+        <property name="loggers">
+            <list>
+                <ref bean ="emailLogger" />
+                <ref bean ="consoleLogger" />
+                <ref bean ="errorLogger" />
+            </list>
+        </property>
     </bean>
 
-    <bean id="myLogger" class="ru.learnup.spring.helloworld.services.MyLogger"/>
+    <bean id="consoleLogger" class="ru.learnup.spring.helloworld.services.ConsoleLogger"/>
+    <bean id="errorLogger" class="ru.learnup.spring.helloworld.services.ErrorLogger"/>
+    <bean id="emailLogger" class="ru.learnup.spring.helloworld.services.EmailLogger"/>
 
 
 </beans>
