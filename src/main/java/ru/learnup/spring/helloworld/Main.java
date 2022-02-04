@@ -9,7 +9,6 @@ public class Main {
 
         ApplicationContext ctx = new ClassPathXmlApplicationContext("myConfig.xml");
 
-        final MyService myService = ctx.getBean(MyService.class);
-        myService.doWork();
+       ctx.getBean(MyService.class).doSmth();
     }
 }

@@ -8,16 +8,17 @@ public class MyService {
 
     private List<Logger> loggers;
 
-
-
+    public void setLoggers(List<Logger> loggers) {
+        this.loggers = loggers;
+    }
 
     public void doSmth(){
 
-        loggers.get(0).print("service starts");
+        for (Logger logger : loggers) {
 
-        System.out.println("поехали");
+            logger.print(" поехали");
+        }
 
-        loggers.get(1).print("service finished");
 
     }
 }
