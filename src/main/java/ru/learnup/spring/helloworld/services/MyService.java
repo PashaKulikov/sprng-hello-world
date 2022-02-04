@@ -1,20 +1,23 @@
 package ru.learnup.spring.helloworld.services;
 
+import ru.learnup.spring.helloworld.services.interfaces.Logger;
+
+import java.util.List;
+
 public class MyService {
 
-    private MyLogger logger;
+    private List<Logger> loggers;
 
 
-    public MyService(MyLogger logger) {
-        this.logger = logger;
-    }
 
-    public void doWork(){
-        logger.log("service starts");
+
+    public void doSmth(){
+
+        loggers.get(0).print("service starts");
 
         System.out.println("поехали");
 
-        logger.log("service finished");
+        loggers.get(1).print("service finished");
 
     }
 }
